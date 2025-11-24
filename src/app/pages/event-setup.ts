@@ -1576,6 +1576,13 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
         </div>
       </main>
     </div>
+
+    <!-- Add Schedule Modal -->
+    <app-add-schedule-modal
+      [isOpen]="isScheduleModalOpen"
+      (close)="closeScheduleModal()"
+      (save)="onScheduleSave($event)"
+    ></app-add-schedule-modal>
   `,
   styles: [
     `
