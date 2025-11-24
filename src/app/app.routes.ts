@@ -8,6 +8,7 @@ import { ManageUserComponent } from "./pages/manage-user";
 import { EventManagersComponent } from "./pages/event-managers";
 import { EventDashboardComponent } from "./pages/event-dashboard";
 import { EventSetupComponent } from "./pages/event-setup";
+import { EventOverviewComponent } from "./pages/event-overview";
 
 export const routes: Routes = [
   {
@@ -43,6 +44,10 @@ export const routes: Routes = [
   {
     path: "event/:id/setup",
     component: EventSetupComponent,
+  },
+  {
+    path: "event/:id/overview",
+    component: EventOverviewComponent,
   },
   {
     path: "manage-user",

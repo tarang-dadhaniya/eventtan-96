@@ -20,9 +20,11 @@ import { FormsModule } from "@angular/forms";
       >
         <!-- Fixed Header -->
         <div
-          class="flex items-center justify-between px-8 py-4 border-b border-gray-200 flex-shrink-0"
+          class="flex items-center justify-between px-8 py-6 border-b border-gray-200 flex-shrink-0"
         >
-          <h2 class="text-[22px] font-medium text-[#3F4254]">Add Schedule</h2>
+          <h2 class="text-[22px] font-medium text-[#3F4254]">
+            {{ editMode ? "Edit Schedule" : "Add Schedule" }}
+          </h2>
           <button
             (click)="onClose()"
             class="w-5 h-5 flex items-center justify-center hover:opacity-70 transition-opacity"
@@ -305,6 +307,21 @@ import { FormsModule } from "@angular/forms";
 })
 export class AddScheduleModalComponent {
   @Input() isOpen = false;
+  @Input() editMode = false;
+  @Input() set scheduleData(data: any) {
+    if (data) {
+      this.formData = {
+        title: data.title || "",
+        date: data.date || "",
+        startTime: data.startTime || "",
+        endTime: data.endTime || "",
+        speakers: data.speakers || "",
+        scheduleFor: data.scheduleFor || "",
+        description: data.description || "",
+        fileName: data.fileName || "",
+      };
+    }
+  }
   @Output() close = new EventEmitter<void>();
   @Output() save = new EventEmitter<any>();
 
@@ -320,11 +337,15 @@ export class AddScheduleModalComponent {
   };
 
   onClose() {
+    this.resetForm();
     this.close.emit();
   }
 
   onSave() {
-    this.save.emit(this.formData);
+    if (this.validateForm()) {
+      this.save.emit(this.formData);
+      this.resetForm();
+    }
   }
 
   onOverlayClick(event: MouseEvent) {
@@ -336,5 +357,46 @@ export class AddScheduleModalComponent {
     if (input.files && input.files.length > 0) {
       this.formData.fileName = input.files[0].name;
     }
+  }
+
+  validateForm(): boolean {
+    if (!this.formData.title.trim()) {
+      alert("Please enter a title");
+      return false;
+    }
+    if (!this.formData.date) {
+      alert("Please select a date");
+      return false;
+    }
+    if (!this.formData.startTime) {
+      alert("Please select a start time");
+      return false;
+    }
+    if (!this.formData.endTime) {
+      alert("Please select an end time");
+      return false;
+    }
+    if (!this.formData.speakers) {
+      alert("Please select a speaker");
+      return false;
+    }
+    if (!this.formData.scheduleFor) {
+      alert("Please select schedule for");
+      return false;
+    }
+    return true;
+  }
+
+  resetForm() {
+    this.formData = {
+      title: "",
+      date: "",
+      startTime: "",
+      endTime: "",
+      speakers: "",
+      scheduleFor: "",
+      description: "",
+      fileName: "",
+    };
   }
 }
