@@ -1341,9 +1341,137 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                 </div>
 
                 <!-- Content Area -->
-                <div class="p-8" style="min-height: 400px;">
+                <div class="p-8">
+                  <!-- Schedule Feature Content -->
+                  <div *ngIf="activeFeatures.length > 0 && activeFeatures[selectedFeatureIndex] === 'schedule'">
+                    <div class="flex flex-col gap-6">
+                      <!-- Header with Title and Action Buttons -->
+                      <div class="flex items-center justify-between gap-4">
+                        <h2 class="text-xl font-medium text-[#686868]">Schedule</h2>
+                        <div class="flex items-center gap-3">
+                          <!-- Search Bar -->
+                          <div class="relative">
+                            <input
+                              type="text"
+                              placeholder="Search"
+                              class="h-11 px-4 pr-10 border border-[#DADADA] rounded bg-[#FBFBFB] text-base placeholder-[#878A99] focus:outline-none focus:border-[#049AD0]"
+                              style="width: 250px;"
+                            />
+                            <svg
+                              class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#B1B1B1]"
+                              fill="none"
+                              viewBox="0 0 18 18"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M9 0C13.9705 0 17.9998 4.02959 18 9C18 13.9706 13.9706 18 9 18C4.02959 17.9998 0 13.9705 0 9C0.000175931 4.0297 4.0297 0.000175935 9 0ZM9 1.5C4.85812 1.50018 1.50018 4.85812 1.5 9C1.5 13.142 4.85801 16.4998 9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.4998 4.85801 13.142 1.5 9 1.5Z"
+                                fill="currentColor"
+                              />
+                            </svg>
+                          </div>
+
+                          <!-- Upload Schedule Button -->
+                          <button
+                            class="flex items-center gap-2 px-4 h-11 border border-[#049AD0] rounded bg-white hover:bg-gray-50 transition-colors"
+                          >
+                            <svg
+                              width="18"
+                              height="18"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.4424 9.58572C10.2135 9.35684 9.84256 9.35684 9.61368 9.58572L7.1033 12.0961C6.87442 12.325 6.87442 12.6959 7.1033 12.9248C7.33203 13.1535 7.70313 13.1535 7.93185 12.9248L9.44202 11.4146V15.6485C9.44202 15.972 9.70447 16.2344 10.028 16.2344C10.3516 16.2344 10.6139 15.972 10.6139 15.6485V11.4146L12.1241 12.9247C12.3531 13.1537 12.7239 13.1535 12.9528 12.9247C13.1816 12.6959 13.1816 12.325 12.9528 12.0961L10.4424 9.58572Z"
+                                fill="#049AD0"
+                              />
+                              <path
+                                d="M12.5385 6.90369H7.51758C7.19409 6.90369 6.93164 7.16599 6.93164 7.48962C6.93164 7.81311 7.19409 8.07556 7.51758 8.07556H12.5385C12.862 8.07556 13.1244 7.81311 13.1244 7.48962C13.1244 7.16599 12.8621 6.90369 12.5385 6.90369Z"
+                                fill="#049AD0"
+                              />
+                              <path
+                                d="M15.677 0H6.89056C6.73523 0 6.58615 0.0617981 6.47629 0.171661L2.71072 3.93723C2.60086 4.04709 2.53906 4.19617 2.53906 4.3515V18.1589C2.53906 19.174 3.36502 20 4.38019 20H15.677C16.6893 20 17.5182 19.1815 17.5182 18.1589V1.84113C17.5182 0.828857 16.6998 0 15.677 0ZM6.93222 1.37283V3.72391C6.93222 4.09302 6.63208 4.39316 6.26297 4.39316H3.9119L6.93222 1.37283ZM16.3463 18.1589C16.3463 18.5234 16.0516 18.8281 15.677 18.8281H4.38019C4.01123 18.8281 3.71094 18.5278 3.71094 18.1589V5.56519H6.26297C7.27814 5.56519 8.1041 4.73923 8.1041 3.72406V1.17188H15.677C16.0417 1.17188 16.3463 1.46667 16.3463 1.84113V18.1589Z"
+                                fill="#049AD0"
+                              />
+                            </svg>
+                            <span class="text-sm font-semibold text-[#049AD0] whitespace-nowrap">
+                              Upload Schedule
+                            </span>
+                          </button>
+
+                          <!-- Add Schedule Button -->
+                          <button
+                            class="flex items-center gap-2 px-4 h-11 border border-[#049AD0] rounded bg-[#009FD8] hover:bg-[#0385b5] text-white transition-colors"
+                          >
+                            <svg
+                              width="18"
+                              height="18"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12 5V19"
+                                stroke="white"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M5 12H19"
+                                stroke="white"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                            <span class="text-sm font-semibold whitespace-nowrap">
+                              Add Schedule
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Table -->
+                      <div class="border border-[#CED4DA] rounded overflow-hidden">
+                        <!-- Table Header -->
+                        <div class="bg-[#F5F5F5] border-b border-[#CED4DA] grid grid-cols-[60px_1fr_120px_120px_120px_120px_80px] gap-4 px-6 py-4">
+                          <div class="text-[#181C32] font-semibold text-sm">Sr. No</div>
+                          <div class="text-[#181C32] font-semibold text-sm">Title</div>
+                          <div class="text-[#181C32] font-semibold text-sm">Date</div>
+                          <div class="text-[#181C32] font-semibold text-sm">Start Time</div>
+                          <div class="text-[#181C32] font-semibold text-sm">End Time</div>
+                          <div class="text-[#181C32] font-semibold text-sm">Sponsor</div>
+                          <div class="text-[#181C32] font-semibold text-sm">Action</div>
+                        </div>
+
+                        <!-- Table Body (Empty State) -->
+                        <div class="bg-white min-h-64 flex items-center justify-center border-t border-[#CED4DA]">
+                          <div class="text-center py-12">
+                            <svg
+                              width="64"
+                              height="64"
+                              viewBox="0 0 32 32"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="mx-auto mb-4 opacity-30"
+                            >
+                              <path
+                                d="M28 4H4C2.89543 4 2 4.89543 2 6V26C2 27.1046 2.89543 28 4 28H28C29.1046 28 30 27.1046 30 26V6C30 4.89543 29.1046 4 28 4ZM28 10H4V6H28V10ZM4 26V14H28V26H4Z"
+                                fill="#CED4DA"
+                              />
+                            </svg>
+                            <p class="text-[#686868] font-medium">No schedules added yet</p>
+                            <p class="text-[#878A99] text-sm mt-1">Click "Add Schedule" to create your first schedule</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Other Features Content (Placeholder) -->
                   <div
-                    *ngIf="activeFeatures.length > 0"
+                    *ngIf="activeFeatures.length > 0 && activeFeatures[selectedFeatureIndex] !== 'schedule'"
                     class="flex flex-col items-center justify-center py-16 text-center"
                   >
                     <div
@@ -1375,6 +1503,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     </div>
                   </div>
 
+                  <!-- No Features Selected -->
                   <div
                     *ngIf="activeFeatures.length === 0"
                     class="flex flex-col items-center justify-center py-20 text-center"
