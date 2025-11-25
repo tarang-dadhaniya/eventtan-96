@@ -2050,12 +2050,17 @@ export class EventSetupComponent implements OnInit {
   bannerPreview: string | null = null;
 
   isScheduleModalOpen = false;
+  isExhibitorModalOpen = false;
   eventId: string = "";
   schedules: Schedule[] = [];
+  exhibitors: Exhibitor[] = [];
   editMode = false;
+  editModeExhibitor = false;
   editingSchedule: any = null;
+  editingExhibitor: any = null;
   isDeleteModalOpen = false;
   scheduleToDelete: string | null = null;
+  exhibitorToDelete: string | null = null;
 
   activeFeatures: string[] = [
     "schedule",
