@@ -1990,6 +1990,15 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
       (save)="onScheduleSave($event)"
     ></app-add-schedule-modal>
 
+    <!-- Add Exhibitor Modal -->
+    <app-add-exhibitor-modal
+      [isOpen]="isExhibitorModalOpen"
+      [editMode]="editModeExhibitor"
+      [exhibitorData]="editingExhibitor"
+      (close)="closeExhibitorModal()"
+      (save)="onExhibitorSave($event)"
+    ></app-add-exhibitor-modal>
+
     <app-confirm-delete-modal
       [isOpen]="isDeleteModalOpen"
       (confirm)="confirmDelete()"
