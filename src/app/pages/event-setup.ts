@@ -2843,6 +2843,7 @@ export class EventSetupComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private scheduleService: ScheduleService,
     private exhibitorService: ExhibitorService,
+    private speakerService: SpeakerService,
     private informationService: InformationService,
   ) {}
 
