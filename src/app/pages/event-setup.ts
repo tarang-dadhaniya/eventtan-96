@@ -2361,7 +2361,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
 
                       <!-- Table Header -->
                       <div
-                        class="px-7 py-5 border-b border-[#CED4DA] bg-white hidden md:grid grid-cols-[60px_1fr_200px_200px_120px] gap-4"
+                        class="px-7 py-5 border-b border-[#CED4DA] bg-white hidden md:grid grid-cols-[60px_1fr_200px_200px_120px] gap-4 md:gap-0"
                       >
                         <div
                           class="text-base font-semibold text-[#181C32] text-center"
@@ -2377,7 +2377,7 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                         <div class="text-base font-semibold text-[#181C32]">
                           Position
                         </div>
-                        <div class="text-base font-semibold text-[#181C32]">
+                        <div class="text-base font-semibold text-[#181C32] text-center">
                           Action
                         </div>
                       </div>
