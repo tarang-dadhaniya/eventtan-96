@@ -846,6 +846,34 @@ import { FormsModule } from "@angular/forms";
 export class AddSponsorsModalComponent {
   @Input() isOpen = false;
   @Input() editMode = false;
+  @Input() eventId: string = "";
+  @Input() set sponsorData(data: any) {
+    if (data) {
+      this.formData = {
+        companyName: data.companyName || "",
+        email: data.email || "",
+        phone: data.phone || "",
+        track: data.track || "",
+        sequence: data.sequence || 1,
+        companyLogo: data.companyLogo || "",
+        socialMedia: {
+          blogRss: data.socialMedia?.blogRss || false,
+          facebook: data.socialMedia?.facebook || false,
+          twitter: data.socialMedia?.twitter || false,
+        },
+        socialMediaUrls: {
+          blogRss: data.socialMediaUrls?.blogRss || "",
+          facebook: data.socialMediaUrls?.facebook || "",
+          twitter: data.socialMediaUrls?.twitter || "",
+        },
+        sponsorsFor: data.sponsorsFor || "",
+        website: data.website || "",
+        description: data.description || "",
+        documentName: data.documentName || "",
+      };
+    }
+  }
+
   @Output() close = new EventEmitter<void>();
   @Output() submit = new EventEmitter<any>();
 
