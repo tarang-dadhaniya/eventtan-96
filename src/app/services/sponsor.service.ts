@@ -38,10 +38,7 @@ export class SponsorService {
       .sort((a, b) => a.sequence - b.sequence);
   }
 
-  addSponsor(
-    eventId: string,
-    sponsor: Omit<Sponsor, "id">,
-  ): Sponsor {
+  addSponsor(eventId: string, sponsor: Omit<Sponsor, "id">): Sponsor {
     const newSponsor: Sponsor = {
       ...sponsor,
       id: this.generateId(),

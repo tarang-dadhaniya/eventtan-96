@@ -2697,7 +2697,9 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                               *ngIf="!sponsor.companyLogo"
                               class="w-10 h-10 rounded flex-shrink-0 bg-[#F5F5F5]"
                             ></div>
-                            <span class="text-[#353846] font-semibold text-base">
+                            <span
+                              class="text-[#353846] font-semibold text-base"
+                            >
                               {{ sponsor.companyName }}
                             </span>
                           </div>
@@ -3716,10 +3718,7 @@ export class EventSetupComponent implements OnInit {
 
   onSponsorSave(sponsorData: any) {
     if (this.editModeSponsor && this.editingSponsor) {
-      this.sponsorService.updateSponsor(
-        this.editingSponsor.id,
-        sponsorData,
-      );
+      this.sponsorService.updateSponsor(this.editingSponsor.id, sponsorData);
     } else {
       this.sponsorService.addSponsor(this.eventId, sponsorData);
     }
