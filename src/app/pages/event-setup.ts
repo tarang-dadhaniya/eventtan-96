@@ -3878,6 +3878,18 @@ export class EventSetupComponent implements OnInit {
     this.isDeleteModalOpen = true;
   }
 
+  openAddSocialMediaModal() {
+    this.isSocialMediaModalOpen = true;
+  }
+
+  closeSocialMediaModal() {
+    this.isSocialMediaModalOpen = false;
+  }
+
+  onSocialMediaSave(socialMediaData: any) {
+    console.log("Social media saved:", socialMediaData);
+  }
+
   formatTime(timeString: string): string {
     if (!timeString) return "";
     const [hours, minutes] = timeString.split(":");
