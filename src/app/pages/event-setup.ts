@@ -3784,6 +3784,9 @@ export class EventSetupComponent implements OnInit {
     } else if (this.sponsorToDelete) {
       this.sponsorService.deleteSponsor(this.sponsorToDelete);
       this.loadSponsors();
+    } else if (this.socialMediaToDelete) {
+      this.socialMediaService.deleteSocialMedia(this.socialMediaToDelete);
+      this.loadSocialMedia();
     }
     this.closeDeleteModal();
   }
@@ -3795,6 +3798,7 @@ export class EventSetupComponent implements OnInit {
     this.speakerToDelete = null;
     this.informationToDelete = null;
     this.sponsorToDelete = null;
+    this.socialMediaToDelete = null;
   }
 
   openExhibitorModal() {
