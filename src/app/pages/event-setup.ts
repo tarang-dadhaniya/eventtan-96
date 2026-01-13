@@ -3953,6 +3953,15 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
       (close)="closeImageGalleryModal()"
       (save)="onImageGallerySave($event)"
     ></app-add-image-gallery-modal>
+
+    <!-- Add Web View Modal -->
+    <app-add-web-view-modal
+      [isOpen]="isWebViewModalOpen"
+      [editMode]="editModeWebView"
+      [editingWebView]="editingWebView"
+      (close)="closeWebViewModal()"
+      (save)="onWebViewSave($event)"
+    ></app-add-web-view-modal>
   `,
   styles: [
     `
