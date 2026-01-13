@@ -6,7 +6,6 @@ import { FormsModule } from "@angular/forms";
   selector: "app-add-testimonials-modal",
   standalone: true,
   imports: [CommonModule, FormsModule],
-  host: { '(keydown.enter)': 'onKeyDownEnter($event)' },
   template: `
     <div
       *ngIf="isOpen"
