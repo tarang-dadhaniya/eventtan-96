@@ -233,7 +233,11 @@ export class AddWebViewModalComponent {
     if (this.floorPlanMobile) floorPlanTypes.push("mobile");
     if (this.floorPlanDesktop) floorPlanTypes.push("desktop");
 
-    if (!this.formData.title || !this.formData.type || floorPlanTypes.length === 0) {
+    if (
+      !this.formData.title ||
+      !this.formData.type ||
+      floorPlanTypes.length === 0
+    ) {
       return;
     }
 

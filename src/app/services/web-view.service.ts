@@ -36,12 +36,16 @@ export class WebViewService {
     return this.webViews.filter((webView) => webView.eventId === eventId);
   }
 
-  addWebView(eventId: string, webViewData: Omit<WebView, "id" | "eventId" | "srNo">): void {
+  addWebView(
+    eventId: string,
+    webViewData: Omit<WebView, "id" | "eventId" | "srNo">,
+  ): void {
     const existingWebViews = this.getWebViewsByEvent(eventId);
-    const newSrNo = existingWebViews.length > 0 
-      ? Math.max(...existingWebViews.map(w => w.srNo)) + 1 
-      : 1;
-    
+    const newSrNo =
+      existingWebViews.length > 0
+        ? Math.max(...existingWebViews.map((w) => w.srNo)) + 1
+        : 1;
+
     const newWebView: WebView = {
       id: Date.now().toString(),
       eventId,
