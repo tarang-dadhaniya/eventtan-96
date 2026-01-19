@@ -3748,55 +3748,6 @@ const EVENT_OVERVIEW_ICON = `<svg width="22" height="22" viewBox="0 0 22 22" fil
                     </div>
                   </div>
 
-                  <!-- Other Features Placeholder -->
-                  <div
-                    *ngIf="
-                      activeFeatures.length > 0 &&
-                      activeFeatures[selectedFeatureIndex] !== 'schedule' &&
-                      activeFeatures[selectedFeatureIndex] !== 'exhibitor' &&
-                      activeFeatures[selectedFeatureIndex] !== 'about' &&
-                      activeFeatures[selectedFeatureIndex] !== 'information' &&
-                      activeFeatures[selectedFeatureIndex] !== 'speakers' &&
-                      activeFeatures[selectedFeatureIndex] !== 'sponsors' &&
-                      activeFeatures[selectedFeatureIndex] !== 'social-media' &&
-                      activeFeatures[selectedFeatureIndex] !==
-                        'image-gallery' &&
-                      activeFeatures[selectedFeatureIndex] !== 'testimonials' &&
-                      activeFeatures[selectedFeatureIndex] !== 'web-view'
-                    "
-                    class="flex flex-col items-center justify-center py-16 text-center"
-                  >
-                    <div
-                      class="w-24 h-24 mb-6 flex items-center justify-center bg-[#F0F7FB] rounded-lg"
-                      [innerHTML]="
-                        getFeatureIcon(activeFeatures[selectedFeatureIndex])
-                      "
-                    ></div>
-                    <h3 class="text-2xl font-bold text-[#181C32] mb-3">
-                      {{
-                        getFeatureLabel(activeFeatures[selectedFeatureIndex])
-                      }}
-                    </h3>
-                    <p class="text-base text-[#686868] max-w-lg mb-6">
-                      Configure the content and settings for the
-                      {{
-                        getFeatureLabel(activeFeatures[selectedFeatureIndex])
-                      }}
-                      feature.
-                    </p>
-                    <div
-                      class="bg-[#E8F4F8] border border-[#49B5D8] rounded-lg p-4 max-w-lg text-left"
-                    >
-                      <p class="text-sm text-[#049AD0] font-medium">
-                        💡 Content configuration for
-                        <strong>{{
-                          getFeatureLabel(activeFeatures[selectedFeatureIndex])
-                        }}</strong>
-                        will be available in the next release.
-                      </p>
-                    </div>
-                  </div>
-
                   <!-- No Features Selected -->
                   <div
                     *ngIf="activeFeatures.length === 0"
